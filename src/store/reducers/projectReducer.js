@@ -21,6 +21,10 @@ const projecReducer = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_PROJECT':
       console.log('Action:', action);
+      return state;
+    case 'CREATE_PROJECT_ERROR':
+      console.error('CREATE_PROJECT_ERROR:', action.error);
+      return state;
     default:
       return state;
   }
