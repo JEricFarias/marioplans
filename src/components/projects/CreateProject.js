@@ -17,6 +17,11 @@ export class CreateProject extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.createProject(this.state);
+    console.log(e.target);
+    this.setState({
+      title: '',
+      content: ''
+    });
   };
 
   render() {
@@ -32,6 +37,7 @@ export class CreateProject extends Component {
                 name="title"
                 id="title"
                 onChange={this.handleChange}
+                value={this.state.title}
               />
             </div>
 
@@ -42,6 +48,7 @@ export class CreateProject extends Component {
                 id="content"
                 className="materialize-textarea"
                 onChange={this.handleChange}
+                value={this.state.content}
               />
             </div>
 
