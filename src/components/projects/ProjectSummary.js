@@ -1,8 +1,10 @@
 import React from 'react';
+import moment from 'moment';
 
 // import { Container } from './styles';
 
 const ProjectsSummary = ({ project }) => {
+  console.log(project.createdAt.toDate());
   return (
     <div className="card z-depth-0 project-summary">
       <div className="card-content grey-text text-darken-3">
@@ -10,7 +12,9 @@ const ProjectsSummary = ({ project }) => {
         <p>
           Posted by {project.authorFirstName} {project.authorLastName}
         </p>
-        <p className="grey-text">3rd Semptember, 2am</p>
+        <p className="grey-text">
+          {moment(project.createdAt.toDate()).format('ll')}
+        </p>
       </div>
     </div>
   );
