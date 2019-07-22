@@ -19,7 +19,20 @@ export class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.signUp(this.state);
+
+    this.setState({
+      ...this.state,
+      validateError: null
+    });
+
+    if (this.state.firstname && this.state.lastname) {
+      this.props.signUp(this.state);
+    } else {
+      this.setState({
+        ...this.state,
+        validateError: 'All the fields must be filled'
+      });
+    }
   };
 
   render() {
@@ -36,6 +49,7 @@ export class SignUp extends Component {
                 type="email"
                 name="email"
                 id="email"
+                value={this.state.email}
                 onChange={this.handleChange}
               />
             </div>
@@ -56,6 +70,7 @@ export class SignUp extends Component {
                 type="text"
                 name="firstname"
                 id="firstname"
+                value={this.state.firstname}
                 onChange={this.handleChange}
               />
             </div>
@@ -66,6 +81,7 @@ export class SignUp extends Component {
                 type="text"
                 name="lastname"
                 id="lastname"
+                value={this.state.lastname}
                 onChange={this.handleChange}
               />
             </div>
@@ -76,6 +92,9 @@ export class SignUp extends Component {
 
             <div className="container red-text">
               {authError ? <p>{authError}</p> : null}
+              {this.state.validateError ? (
+                <p>{this.state.validateError}</p>
+              ) : null}
             </div>
           </form>
         </div>

@@ -4,7 +4,6 @@ import moment from 'moment';
 // import { Container } from './styles';
 
 const ProjectsSummary = ({ project }) => {
-  console.log(project.createdAt.toDate());
   return (
     <div className="card z-depth-0 project-summary">
       <div className="card-content grey-text text-darken-3">
