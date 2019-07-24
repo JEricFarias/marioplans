@@ -17,7 +17,6 @@ export class SignIn extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log('State:', this.state);
     this.props.connect(this.state);
     this.setState({
       password: ''

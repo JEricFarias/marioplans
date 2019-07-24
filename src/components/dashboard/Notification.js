@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 const Notifications = props => {
-  console.log(props.notifications);
   const { notifications } = props;
   return (
     <aside className="section">

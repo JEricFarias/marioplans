@@ -4,20 +4,28 @@ import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
 
 const SignedInLinks = props => {
+  const menuLinks = (
+    <div>
+      <li>
+        <NavLink to="/create">New Project</NavLink>
+      </li>
+      <li>
+        <a onClick={props.logout}>Log Out</a>
+      </li>
+    </div>
+  );
   return (
     <div>
-      <ul className="right">
-        <li>
-          <NavLink to="/create">New Project</NavLink>
-        </li>
-        <li>
-          <a onClick={props.logout}>Log Out</a>
-        </li>
-        <li>
-          <NavLink to="/" className="btn btn-floating pink lighten-1">
-            {props.profile.abbreviation}
-          </NavLink>
-        </li>
+      <div className="right">
+        <NavLink to="/" className="btn btn-floating pink lighten-1">
+          {props.profile.abbreviation}
+        </NavLink>
+      </div>
+      
+      <ul className="right hide-on-med-and-down">{menuLinks}</ul>
+
+      <ul className="sidenav" id="mobile-menu">
+        {menuLinks}
       </ul>
     </div>
   );

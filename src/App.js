@@ -6,6 +6,8 @@ import ProjectDetail from './components/projects/ProjectDetail';
 import CreateProject from './components/projects/CreateProject';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.js'
 
 class App extends Component {
   render() {
